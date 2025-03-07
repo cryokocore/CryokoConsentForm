@@ -120,7 +120,7 @@ const FormComponent = () => {
         message.error(`Error: ${result.message}`);
       }
     } catch (error) {
-      console.error("Submission Error:", error);
+      // console.error("Submission Error:", error);
       message.error("An error occurred while saving data.");
     } finally {
       setLoading(false);
