@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/CryokoConsentForm/static/css/main.ebe9c17f.css",
+    "main.js": "/CryokoConsentForm/static/js/main.d9bdf430.js",
+    "static/js/239.81f2280a.chunk.js": "/CryokoConsentForm/static/js/239.81f2280a.chunk.js",
+    "static/js/977.2c90715d.chunk.js": "/CryokoConsentForm/static/js/977.2c90715d.chunk.js",
+    "static/js/667.f871f818.chunk.js": "/CryokoConsentForm/static/js/667.f871f818.chunk.js",
+    "static/js/453.49b82efc.chunk.js": "/CryokoConsentForm/static/js/453.49b82efc.chunk.js",
+    "static/media/logo.svg": "/CryokoConsentForm/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/CryokoConsentForm/index.html",
+    "main.ebe9c17f.css.map": "/CryokoConsentForm/static/css/main.ebe9c17f.css.map",
+    "main.d9bdf430.js.map": "/CryokoConsentForm/static/js/main.d9bdf430.js.map",
+    "239.81f2280a.chunk.js.map": "/CryokoConsentForm/static/js/239.81f2280a.chunk.js.map",
+    "667.f871f818.chunk.js.map": "/CryokoConsentForm/static/js/667.f871f818.chunk.js.map",
+    "453.49b82efc.chunk.js.map": "/CryokoConsentForm/static/js/453.49b82efc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ebe9c17f.css",
+    "static/js/main.d9bdf430.js"
+  ]
+}
