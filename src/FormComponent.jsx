@@ -10,6 +10,7 @@ message.config({
   duration: 3,
   maxCount: 3,
 });
+const { TextArea } = Input;
 
 const FormComponent = () => {
   const [form] = Form.useForm();
@@ -18,6 +19,7 @@ const FormComponent = () => {
   const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
   const sigCanvas = useRef();
   const [signatureData, setSignatureData] = useState("");
+  const [address, setAddress] = useState("");
 
   const updateCanvasSize = () => {
     if (sigCanvas.current) {
@@ -54,6 +56,21 @@ const FormComponent = () => {
     font-size: 17px;
 }
   `;
+
+  const handleAddressChange = (e) => {
+    let value = e.target.value;
+    let lines = value.split("\n");
+
+    // Limit strictly to 5 rows
+    if (lines.length > 3 || value.length > 100) {
+      message.warning(
+        "Input limited to 3 lines, 100 characters. Excess text won't be included."
+      );
+      value = lines.slice(0, 2).join("\n"); // Trim excess lines
+    }
+
+    setAddress(value); // Update state only if within limits
+  };
   const [checkboxes, setCheckboxes] = useState({
     diseaseCirculatorySystem: false,
     acuteMyocardialInfarction: false,
@@ -380,7 +397,7 @@ const FormComponent = () => {
       doc.setFont("helvetica", "bold");
       doc.text("Address: ", 20, 90);
       doc.setFont("helvetica", "normal");
-      const addressLines = doc.splitTextToSize(formData.address || "N/A", 140);
+      const addressLines = doc.splitTextToSize(formData.address || "N/A", 105);
       doc.text(addressLines, 85, 90);
       yOffset += addressLines.length * 7;
 
@@ -791,7 +808,16 @@ const FormComponent = () => {
                     { required: true, message: "Please enter your address" },
                   ]}
                 >
-                  <Input.TextArea rows={2} placeholder="Enter your address" />
+                  {/* <Input.TextArea rows={2} placeholder="Enter your address" /> */}
+                  <TextArea
+                          placeholder="Enter address"
+                          value={address}
+                          rows={2}
+                          onChange={handleAddressChange}
+                          autoSize={{ minRows: 3, maxRows: 3 }}
+                          maxLength={100}
+                          showCount
+                        />
                 </Form.Item>
 
                 {/* Emergency Contact Name & Number - Two Columns */}
