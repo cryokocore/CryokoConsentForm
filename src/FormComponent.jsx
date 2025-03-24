@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Form, Input, Button, DatePicker, message } from "antd";
+import { Form, Input, Button, DatePicker, message,   Checkbox,
+} from "antd";
 import SignatureCanvas from "react-signature-canvas";
 import jsPDF from "jspdf";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -315,9 +316,17 @@ const FormComponent = () => {
         // console.log("Checking:", option.key, checkboxes?.[option.key]); // Debugging
 
         const isChecked = !!checkboxes?.[option.key]; // Ensure it's always true/false
+        // doc.setFont("Zapfdingbats");
+        // const symbol = isChecked ? "4" : "o"; // '4' = tick, 'o' = bullet
+        // doc.text(symbol, 20, yOffset);
+        doc.setFont("helvetica", "normal");
+        doc.setLineWidth(0.5);
+        doc.setDrawColor(0, 0, 0);
+        doc.rect(20, yOffset - 3.5, 4, 4);
         doc.setFont("Zapfdingbats");
-        const symbol = isChecked ? "4" : "o"; // '4' = tick, 'o' = bullet
-        doc.text(symbol, 20, yOffset);
+        doc.setTextColor(0, 0, 0);
+        const symbol = isChecked ? "4" : "";
+        doc.text(`${symbol}`, 20, yOffset - 0.1);
 
         doc.setFont("helvetica", "normal");
         const wrappedText = doc.splitTextToSize(option.label, 160);
@@ -558,8 +567,9 @@ const FormComponent = () => {
           <div className="row d-flex justify-content-center">
             <div className="col-12 " style={{ fontSize: "18px" }}>
               <label className="checkbox-label ">
-                <input
-                  type="checkbox"
+                                <Checkbox
+
+                  // type="checkbox"
                   name="diseaseCirculatorySystem"
                   checked={checkboxes.diseaseCirculatorySystem}
                   onChange={handleCheckboxChange}
@@ -567,8 +577,8 @@ const FormComponent = () => {
                 Diseases of circulatory system
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+                <Checkbox
+                  // type="checkbox"
                   name="acuteMyocardialInfarction"
                   checked={checkboxes.acuteMyocardialInfarction}
                   onChange={handleCheckboxChange}
@@ -577,8 +587,9 @@ const FormComponent = () => {
                 diseases
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+                {/* <input */}                <Checkbox
+
+                  // type="checkbox"
                   name="circulatoryInsufficiency"
                   checked={checkboxes.circulatoryInsufficiency}
                   onChange={handleCheckboxChange}
@@ -587,8 +598,9 @@ const FormComponent = () => {
                 rhythm
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+                {/* <input */}                 <Checkbox
+
+                  // type="checkbox"
                   name="pastEmbolisms"
                   checked={checkboxes.pastEmbolisms}
                   onChange={handleCheckboxChange}
@@ -596,8 +608,8 @@ const FormComponent = () => {
                 Past embolisms
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+              <Checkbox
+                  // type="checkbox"
                   name="unstableHypertension"
                   checked={checkboxes.unstableHypertension}
                   onChange={handleCheckboxChange}
@@ -605,8 +617,8 @@ const FormComponent = () => {
                 Unstable arterial hypertension
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+              <Checkbox
+                  // type="checkbox"
                   name="openSkinwoundsandinjuries"
                   checked={checkboxes.openSkinwoundsandinjuries}
                   onChange={handleCheckboxChange}
@@ -614,8 +626,10 @@ const FormComponent = () => {
                 Open Skin wounds and injuries
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+                {/* <input */}
+                <Checkbox
+
+                  // type="checkbox"
                   name="frostbite"
                   checked={checkboxes.frostbite}
                   onChange={handleCheckboxChange}
@@ -623,8 +637,8 @@ const FormComponent = () => {
                 Frostbite
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+              <Checkbox
+                  // type="checkbox"
                   name="feveroractiveacuteinfectiousdiseases"
                   checked={checkboxes.feveroractiveacuteinfectiousdiseases}
                   onChange={handleCheckboxChange}
@@ -632,8 +646,8 @@ const FormComponent = () => {
                 Fever or active acute infectious diseases
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+              <Checkbox
+                  // type="checkbox"
                   name="cryoglobulinemia"
                   checked={checkboxes.cryoglobulinemia}
                   onChange={handleCheckboxChange}
@@ -641,8 +655,8 @@ const FormComponent = () => {
                 Cryoglobulinemia
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+              <Checkbox
+                  // type="checkbox"
                   name="peripheralvasculardiseases"
                   checked={checkboxes.peripheralvasculardiseases}
                   onChange={handleCheckboxChange}
@@ -650,8 +664,8 @@ const FormComponent = () => {
                 Peripheral vascular diseases
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+              <Checkbox
+                  // type="checkbox"
                   name="pregnancy"
                   checked={checkboxes.pregnancy}
                   onChange={handleCheckboxChange}
@@ -659,8 +673,8 @@ const FormComponent = () => {
                 Pregnancy
               </label>
               <label className="checkbox-label">
-                <input
-                  type="checkbox"
+              <Checkbox
+                  // type="checkbox"
                   name="undertheinfluenceofalcohol"
                   checked={checkboxes.undertheinfluenceofalcohol}
                   onChange={handleCheckboxChange}
